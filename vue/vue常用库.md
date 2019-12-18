@@ -285,3 +285,59 @@ import CodeMirror, { Editor } from 'codemirror'
 
 CodeMirror.fromTextArea(dom, options)
 ```
+
+
+### sax
+
+一个非常简单的工具来解析XML字符串， 用于XML和HTML的sax样式的解析器
+
+```js
+import sax from 'sax'
+
+const parser = sax.parser(false, { lowercase: true })
+parser.onopentag = ({ name, attributes }) => {
+  // opened a tag.  node has "name" and "attributes"
+  // 使用了wxs
+  if (targetsTag.indexOf(name) > -1) {
+    const src = attributes.src
+    this.addSJSResource(entries, entry, src)
+  }
+}
+parser.write(xmlContent).close()
+```
+
+### xml2js
+
+简单的XML到JavaScript对象的转换器, 支持双向转换
+
+```js
+var xml2js = require('xml2js');
+var xml = '<foo></foo>';
+ 
+// With parser
+var parser = new xml2js.Parser(/* options */);
+parser.parseString(data, function (error, result) {
+  console.dir(result);
+  console.log('Done');
+})
+.catch(function (err) {
+  // Failed
+});
+ 
+// Without parser
+xml2js.parseStringPromise(data /*, options */).then(function (result) {
+  console.dir(result);
+  console.log('Done');
+})
+.catch(function (err) {
+  // Failed
+});
+
+
+var xml2js = require('xml2js');
+ 
+var obj = {root: {$: {id: "my id"}, _: "my inner text"}};
+ 
+var builder = new xml2js.Builder();
+var xml = builder.buildObject(obj);
+```
