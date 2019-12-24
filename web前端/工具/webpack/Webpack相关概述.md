@@ -21,13 +21,3 @@ Webpack 分为Webpack-cli 和 Webpack 和 Webpack-dev-server
   开发模式运行webpack，使用spdy来启动的服务器
 
   - bin 主要是处理参数，最终用的是lib/Server, 参数是webpack的编译对象Compiler
-
-### Webpack 目录结构
-  
-
-
-### Webpack5 流程
-
-1. 使用schema-utils(主要是ajv)对json配置进行校验。错误抛出。
-   
-2. 
