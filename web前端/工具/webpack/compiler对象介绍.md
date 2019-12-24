@@ -2,6 +2,8 @@
 
 ## compiler对象介绍
 
+Compiler的大部分内部属性的复制都是在WebpackOptionsApply。配置文件赋值的时候用到的
+
 ### 属性详解
 
 1. recordsInputPath
@@ -31,3 +33,16 @@
 5. watchFileSystem
 
     在NodeEnvironmentPlugin中生成。NodeWatchFileSystem对象。使用inputFileSystem对象记录。
+
+6. name
+
+    多配置的时候需要。读取配置文件的name
+
+7. outputPath
+
+    读取配置文件output.path。绝对路径，文件输出的位置
+
+8. infrastructureLogger
+
+    有默认值{ level: info, debug: false, console： nodeConsole }，读取配置文件的infrastructureLogger，是一个对象。日志处理，包括level，debug，console对象。
+    level: 1 - 6。verbose [true log] info warn error [false none]
